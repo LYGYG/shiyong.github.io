@@ -1,516 +1,238 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitPro - 运动工具APP</title>
+    <title>摄像头工具APP - 高保真原型</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
-            background-color: #f0f0f0;
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(395px, 1fr));
+            gap: 20px;
             padding: 20px;
         }
-        .screens-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
-            gap: 30px;
-            justify-items: center;
-        }
-        .iphone-frame {
-            width: 375px;
-            height: 812px;
-            background-color: #111;
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        .notch {
-            position: absolute;
-            width: 150px;
-            height: 30px;
-            background-color: #111;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            z-index: 10;
-        }
-        .screen {
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            border-radius: 30px;
-            overflow: hidden;
+        .screen-container {
             position: relative;
         }
-        .content {
-            width: 100%;
-            height: calc(100% - 70px);
-            overflow-y: auto;
-        }
-        .bottom-bar {
+        .screen-title {
             position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 70px;
-            background-color: white;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            border-top: 1px solid #eee;
-        }
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #777;
-            font-size: 10px;
-        }
-        .nav-item.active {
-            color: #3b82f6;
-        }
-        .nav-icon {
-            font-size: 22px;
-            margin-bottom: 4px;
-        }
-        .page-title {
+            top: -25px;
+            left: 0;
+            right: 0;
             text-align: center;
             font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #3b82f6;
-            color: white;
-            border-radius: 8px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1 class="text-3xl font-bold text-center mb-8">运动工具APP - 高保真原型</h1>
-    
-    <div class="screens-grid">
-        <!-- 首页 -->
-        <div class="iphone-frame">
-            <div class="notch"></div>
-            <div class="screen">
-                <div class="content">
-                    <div class="page-title">首页</div>
-                    <div class="p-4">
-                        <!-- 顶部欢迎区域 -->
-                        <div class="flex justify-between items-center mb-6">
-                            <div>
-                                <h1 class="text-2xl font-bold">你好，小明</h1>
-                                <p class="text-gray-600 text-sm">今天是个锻炼的好日子！</p>
-                            </div>
-                            <div class="w-12 h-12 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80')"></div>
-                        </div>
+    <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-6 shadow-lg">
+        <h1 class="text-3xl font-bold">摄像头工具APP - 高保真原型</h1>
+        <p class="mt-2">主色调: #02187b | 辅助色: #0216A5, #164de5, #1e89ef, #5cdffb</p>
+    </header>
 
-                        <!-- 活动环 -->
-                        <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
-                            <h2 class="text-lg font-semibold mb-3">今日活动</h2>
-                            <div class="flex justify-between">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-16 h-16 rounded-full border-4 border-blue-500 flex items-center justify-center mb-1">
-                                        <span class="text-lg font-bold">65%</span>
-                                    </div>
-                                    <span class="text-xs text-gray-600">步数</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-16 h-16 rounded-full border-4 border-green-500 flex items-center justify-center mb-1">
-                                        <span class="text-lg font-bold">42%</span>
-                                    </div>
-                                    <span class="text-xs text-gray-600">运动</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-16 h-16 rounded-full border-4 border-red-500 flex items-center justify-center mb-1">
-                                        <span class="text-lg font-bold">78%</span>
-                                    </div>
-                                    <span class="text-xs text-gray-600">站立</span>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container mx-auto my-8">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">产品概述</h2>
+            <p class="mb-2">本摄像头工具APP专为安防监控系统设计，支持多种摄像头和基站设备管理。</p>
+            <p class="mb-2">核心功能包括：设备注册与连接、实时视频监控、事件通知、远程操作等。</p>
+            <p>目标用户：家庭安防用户、小型企业、安防系统管理员。</p>
+        </div>
 
-                        <!-- 快速开始 -->
-                        <h2 class="text-lg font-semibold mb-3">快速开始</h2>
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="bg-blue-500 text-white rounded-xl p-4 flex items-center">
-                                <i class="fas fa-running text-2xl mr-3"></i>
-                                <div>
-                                    <h3 class="font-semibold">开始跑步</h3>
-                                    <p class="text-xs opacity-80">户外跑步</p>
-                                </div>
-                            </div>
-                            <div class="bg-purple-500 text-white rounded-xl p-4 flex items-center">
-                                <i class="fas fa-dumbbell text-2xl mr-3"></i>
-                                <div>
-                                    <h3 class="font-semibold">力量训练</h3>
-                                    <p class="text-xs opacity-80">全身锻炼</p>
-                                </div>
-                            </div>
-                            <div class="bg-green-500 text-white rounded-xl p-4 flex items-center">
-                                <i class="fas fa-biking text-2xl mr-3"></i>
-                                <div>
-                                    <h3 class="font-semibold">骑行</h3>
-                                    <p class="text-xs opacity-80">户外骑行</p>
-                                </div>
-                            </div>
-                            <div class="bg-yellow-500 text-white rounded-xl p-4 flex items-center">
-                                <i class="fas fa-walking text-2xl mr-3"></i>
-                                <div>
-                                    <h3 class="font-semibold">步行</h3>
-                                    <p class="text-xs opacity-80">日常活动</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 今日建议 -->
-                        <h2 class="text-lg font-semibold mb-3">今日建议</h2>
-                        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
-                            <div class="h-32 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-                            <div class="p-4">
-                                <h3 class="font-semibold">恢复日：轻度拉伸</h3>
-                                <p class="text-sm text-gray-600 mt-1">根据你昨天的高强度训练，今天建议进行轻度拉伸恢复。</p>
-                                <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">查看详情</button>
-                            </div>
-                        </div>
-                    </div>
+        <div class="grid-container">
+            <!-- 登录注册页 -->
+            <div class="screen-container">
+                <div class="screen-title">登录注册页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/login.html" frameborder="0" width="100%" height="100%"></iframe>
                 </div>
-                <div class="bottom-bar">
-                    <div class="nav-item active">
-                        <div class="nav-icon"><i class="fas fa-home"></i></div>
-                        <div>首页</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-dumbbell"></i></div>
-                        <div>训练</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-users"></i></div>
-                        <div>社区</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
-                        <div>数据</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-user"></i></div>
-                        <div>我的</div>
-                    </div>
+            </div>
+
+            <!-- 添加设备页 -->
+            <div class="screen-container">
+                <div class="screen-title">添加设备页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/add_device.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 添加基站页 -->
+            <div class="screen-container">
+                <div class="screen-title">添加基站页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/add_base.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 添加摄像头页 -->
+            <div class="screen-container">
+                <div class="screen-title">添加摄像头页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/add_camera.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 扫码添加设备页 -->
+            <div class="screen-container">
+                <div class="screen-title">扫码添加设备页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/scan_device.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 添加失败页 -->
+            <div class="screen-container">
+                <div class="screen-title">添加失败页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/add_failed.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 局域网连接页 -->
+            <div class="screen-container">
+                <div class="screen-title">局域网连接页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/lan_connect.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 连接成功页 -->
+            <div class="screen-container">
+                <div class="screen-title">连接成功页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/connect_success.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 信号强度检测页 -->
+            <div class="screen-container">
+                <div class="screen-title">信号强度检测页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/signal_strength.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 摄像头校准页 -->
+            <div class="screen-container">
+                <div class="screen-title">摄像头校准页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/camera_calibration.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 我的页面 -->
+            <div class="screen-container">
+                <div class="screen-title">我的页面</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/my_profile.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 多个摄像头切换效果页 -->
+            <div class="screen-container">
+                <div class="screen-title">多个摄像头切换效果页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/multi_camera.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 设置信息页 -->
+            <div class="screen-container">
+                <div class="screen-title">设置信息页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/settings.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 实时视频横屏页 -->
+            <div class="screen-container">
+                <div class="screen-title">实时视频横屏页</div>
+                <div class="iphone-frame" style="transform: rotate(90deg); margin: 80px;">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/video_landscape.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 实时视频竖屏页 -->
+            <div class="screen-container">
+                <div class="screen-title">实时视频竖屏页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/video_portrait.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 监控事件页 -->
+            <div class="screen-container">
+                <div class="screen-title">监控事件页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/monitoring_events.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 设备信息页 -->
+            <div class="screen-container">
+                <div class="screen-title">设备信息页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/device_info.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 摄像头操作页 -->
+            <div class="screen-container">
+                <div class="screen-title">摄像头操作页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/camera_control.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 基站和摄像头管理页 -->
+            <div class="screen-container">
+                <div class="screen-title">基站和摄像头管理页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/device_management.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+
+            <!-- 安装指南页 -->
+            <div class="screen-container">
+                <div class="screen-title">安装指南页</div>
+                <div class="iphone-frame">
+                    <div class="iphone-notch"></div>
+                    <iframe src="pages/installation_guide.html" frameborder="0" width="100%" height="100%"></iframe>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 训练页面 -->
-        <div class="iphone-frame">
-            <div class="notch"></div>
-            <div class="screen">
-                <div class="content">
-                    <div class="page-title">训练</div>
-                    <div class="p-4">
-                        <!-- 顶部标题 -->
-                        <div class="flex justify-between items-center mb-6">
-                            <h1 class="text-2xl font-bold">训练</h1>
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">
-                                <i class="fas fa-plus mr-1"></i> 创建
-                            </button>
-                        </div>
-
-                        <!-- 训练计划 -->
-                        <h2 class="text-lg font-semibold mb-3">我的计划</h2>
-                        <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="font-semibold">每周训练计划</h3>
-                                <span class="text-blue-500 text-sm">查看全部</span>
-                            </div>
-                            <div class="flex space-x-3 overflow-x-auto pb-2">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                                        <span class="text-sm font-bold">一</span>
-                                    </div>
-                                    <span class="text-xs">休息</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center mb-1">
-                                        <span class="text-sm font-bold">二</span>
-                                    </div>
-                                    <span class="text-xs">跑步</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                                        <span class="text-sm font-bold">三</span>
-                                    </div>
-                                    <span class="text-xs">力量</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                                        <span class="text-sm font-bold">四</span>
-                                    </div>
-                                    <span class="text-xs">休息</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                                        <span class="text-sm font-bold">五</span>
-                                    </div>
-                                    <span class="text-xs">跑步</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                                        <span class="text-sm font-bold">六</span>
-                                    </div>
-                                    <span class="text-xs">力量</span>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                                        <span class="text-sm font-bold">日</span>
-                                    </div>
-                                    <span class="text-xs">休息</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 今日训练 -->
-                        <h2 class="text-lg font-semibold mb-3">今日训练</h2>
-                        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
-                            <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
-                            <div class="p-4">
-                                <h3 class="font-semibold text-lg">5公里中等强度跑步</h3>
-                                <div class="flex items-center mt-2 text-sm text-gray-600">
-                                    <div class="flex items-center mr-4">
-                                        <i class="far fa-clock mr-1"></i>
-                                        <span>30分钟</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="fas fa-fire mr-1"></i>
-                                        <span>250卡路里</span>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-600 mt-2">保持中等配速，注意呼吸节奏，完成后进行拉伸。</p>
-                                <button class="mt-3 bg-blue-500 text-white px-6 py-2 rounded-lg text-sm w-full">开始训练</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-bar">
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-home"></i></div>
-                        <div>首页</div>
-                    </div>
-                    <div class="nav-item active">
-                        <div class="nav-icon"><i class="fas fa-dumbbell"></i></div>
-                        <div>训练</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-users"></i></div>
-                        <div>社区</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
-                        <div>数据</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-user"></i></div>
-                        <div>我的</div>
-                    </div>
-                </div>
-            </div>
+    <footer class="bg-blue-900 text-white p-6 mt-12">
+        <div class="container mx-auto">
+            <p class="text-center">摄像头工具APP高保真原型 - 设计及实现</p>
         </div>
-
-        <!-- 社区页面 -->
-        <div class="iphone-frame">
-            <div class="notch"></div>
-            <div class="screen">
-                <div class="content">
-                    <div class="page-title">社区</div>
-                    <div class="p-4">
-                        <!-- 顶部标题 -->
-                        <div class="flex justify-between items-center mb-6">
-                            <h1 class="text-2xl font-bold">社区</h1>
-                            <div class="flex space-x-3">
-                                <button class="text-gray-600">
-                                    <i class="fas fa-search text-xl"></i>
-                                </button>
-                                <button class="text-gray-600">
-                                    <i class="fas fa-bell text-xl"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- 话题分类 -->
-                        <div class="flex space-x-2 mb-6 overflow-x-auto pb-2">
-                            <div class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">推荐</div>
-                            <div class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">跑步</div>
-                            <div class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">健身</div>
-                            <div class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">瑜伽</div>
-                            <div class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">饮食</div>
-                        </div>
-
-                        <!-- 热门挑战 -->
-                        <h2 class="text-lg font-semibold mb-4">热门挑战</h2>
-                        <div class="flex space-x-4 overflow-x-auto pb-4">
-                            <div class="w-40 flex-shrink-0 bg-white rounded-xl shadow-sm overflow-hidden">
-                                <div class="h-24 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1486218119243-13883505764c?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80')"></div>
-                                <div class="p-3">
-                                    <h3 class="font-semibold text-sm">10K跑步挑战</h3>
-                                    <p class="text-xs text-gray-500 mt-1">2,345人参与</p>
-                                </div>
-                            </div>
-                            <div class="w-40 flex-shrink-0 bg-white rounded-xl shadow-sm overflow-hidden">
-                                <div class="h-24 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80')"></div>
-                                <div class="p-3">
-                                    <h3 class="font-semibold text-sm">30天俯卧撑</h3>
-                                    <p class="text-xs text-gray-500 mt-1">1,782人参与</p>
-                                </div>
-                            </div>
-                            <div class="w-40 flex-shrink-0 bg-white rounded-xl shadow-sm overflow-hidden">
-                                <div class="h-24 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80')"></div>
-                                <div class="p-3">
-                                    <h3 class="font-semibold text-sm">早起健身打卡</h3>
-                                    <p class="text-xs text-gray-500 mt-1">3,421人参与</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 社区动态 -->
-                        <h2 class="text-lg font-semibold mb-4 mt-2">社区动态</h2>
-                        <div class="space-y-4">
-                            <!-- 动态1 -->
-                            <div class="bg-white rounded-xl shadow-sm p-4">
-                                <div class="flex items-center mb-3">
-                                    <div class="w-10 h-10 rounded-full bg-cover bg-center mr-3" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80')"></div>
-                                    <div>
-                                        <h3 class="font-semibold text-sm">李小花</h3>
-                                        <p class="text-xs text-gray-500">2小时前</p>
-                                    </div>
-                                </div>
-                                <p class="text-sm mb-3">今天完成了10公里跑步，感觉超棒！坚持就是胜利 💪</p>
-                                <div class="rounded-lg overflow-hidden mb-3">
-                                    <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="跑步照片" class="w-full">
-                                </div>
-                                <div class="flex justify-between text-gray-500 text-sm">
-                                    <div class="flex items-center">
-                                        <i class="far fa-heart mr-1"></i>
-                                        <span>128</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="far fa-comment mr-1"></i>
-                                        <span>36</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i class="far fa-share-square mr-1"></i>
-                                        <span>分享</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-bar">
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-home"></i></div>
-                        <div>首页</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-dumbbell"></i></div>
-                        <div>训练</div>
-                    </div>
-                    <div class="nav-item active">
-                        <div class="nav-icon"><i class="fas fa-users"></i></div>
-                        <div>社区</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
-                        <div>数据</div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="nav-icon"><i class="fas fa-user"></i></div>
-                        <div>我的</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 数据统计页面 -->
-        <div class="iphone-frame">
-            <div class="notch"></div>
-            <div class="screen">
-                <div class="content">
-                    <div class="page-title">数据统计</div>
-                    <div class="p-4">
-                        <!-- 顶部标题 -->
-                        <div class="flex justify-between items-center mb-6">
-                            <h1 class="text-2xl font-bold">数据统计</h1>
-                            <div class="flex space-x-2">
-                                <button class="text-gray-600">
-                                    <i class="fas fa-calendar-alt text-xl"></i>
-                                </button>
-                                <button class="text-gray-600">
-                                    <i class="fas fa-share-alt text-xl"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- 时间选择器 -->
-                        <div class="flex space-x-2 mb-6 overflow-x-auto pb-2">
-                            <div class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">日</div>
-                            <div class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">周</div>
-                            <div class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">月</div>
-                            <div class="bg-white text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap">年</div>
-                        </div>
-
-                        <!-- 总览数据 -->
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="bg-white rounded-xl shadow-sm p-4">
-                                <div class="flex items-center mb-2">
-                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2">
-                                        <i class="fas fa-fire text-blue-500"></i>
-                                    </div>
-                                    <span class="text-gray-600 text-sm">总消耗</span>
-                                </div>
-                                <div class="text-2xl font-bold">2,456</div>
-                                <div class="text-xs text-gray-500">卡路里</div>
-                            </div>
-                            <div class="bg-white rounded-xl shadow-sm p-4">
-                                <div class="flex items-center mb-2">
-                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-2">
-                                        <i class="fas fa-running text-green-500"></i>
-                                    </div>
-                                    <span class="text-gray-600 text-sm">总距离</span>
-                                </div>
-                                <div class="text-2xl font-bold">18.5</div>
-                                <div class="text-xs text-gray-500">公里</div>
-                            </div>
-                            <div class="bg-white rounded-xl shadow-sm p-4">
-                                <div class="flex items-center mb-2">
-                                    <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-2">
-                                        <i class="fas fa-clock text-purple-500"></i>
-                                    </div>
-                                    <span class="text-gray-600 text-sm">总时长</span>
-                                </div>
-                                <div class="text-2xl font-bold">3:45</div>
-                                <div class="text-xs text-gray-500">小时</div>
-                            </div>
-                            <div class="bg-white rounded-xl shadow-sm p-4">
-                                <div class="flex items-center mb-2">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-2">
-                                        <i class="fas fa-bolt text-yellow-500"></i>
-                                    </div>
-                                    <span class="text-gray-600 text-sm">平均配速</span>
-                                </div>
-                                <div class="text-2xl font-bold">5'30"</div>
-                                <div class="text-xs text-gray-500">分钟/公里</div>
-                            </div>
-                        </div>
-
-                        <!-- 活动图表 -->
-                        <h2 class="text-lg font-semibold mb-3">活动趋势</h2>
-                        <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
-                            <div class="h-40 flex items-end justify-between">
-                                <div class="w-8 flex flex-col items-center">
-                                    <div class="bg-blue-500 w-6 rounded-t-sm" style="height: 30%"></div>
-                                    <span class="text-xs mt-1">一</span>
-                                </div>
+    </footer>
+</body>
+</html> 
