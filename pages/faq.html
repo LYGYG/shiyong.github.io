@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-[#02187b] text-white p-4">
+        <div class="flex items-center">
+            <i class="fas fa-arrow-left text-xl"></i>
+            <h1 class="text-xl font-semibold ml-4">FAQ</h1>
+        </div>
+    </header>
+
+    <!-- FAQ Categories -->
+    <div class="px-4 mb-4">
+        <div class="flex space-x-2 overflow-x-auto pb-2">
+            <button class="px-4 py-2 bg-[#02187b] text-white rounded-full whitespace-nowrap">All</button>
+            <button class="px-4 py-2 bg-white text-gray-700 rounded-full whitespace-nowrap">Device</button>
+        </div>
+    </div>
+
+    <!-- FAQ List -->
+    <div class="px-4 space-y-4 pb-20">
+        <!-- Device Section -->
+        <div class="bg-white rounded-xl shadow-sm p-4">
+            <h3 class="font-medium text-[#02187b] mb-2">Device</h3>
+            <div class="space-y-4">
+                <div class="border-b border-gray-100 pb-2">
+                    <div class="flex justify-between items-center">
+                        <p class="text-sm">Where to register?</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-2 hidden">
+                        Go to Settings > Account > Register
+                    </p>
+                </div>
+                <div class="border-b border-gray-100 pb-2">
+                    <div class="flex justify-between items-center">
+                        <p class="text-sm">Multi-device login?</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-2 hidden">
+                        Yes, one account can be used on multiple devices
+                    </p>
+                </div>
+                <div class="border-b border-gray-100 pb-2">
+                    <div class="flex justify-between items-center">
+                        <p class="text-sm">Change account info?</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-2 hidden">
+                        Go to Settings > Account to modify
+                    </p>
+                </div>
+                <div class="border-b border-gray-100 pb-2">
+                    <div class="flex justify-between items-center">
+                        <p class="text-sm">Device offline?</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-2 hidden">
+                        1. Check power<br>
+                        2. Check WiFi<br>
+                        3. Restart device
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Support -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
+        <button class="w-full bg-[#02187b] text-white py-3 rounded-lg">
+            Contact
+        </button>
+    </div>
+</body>
+</html> 
